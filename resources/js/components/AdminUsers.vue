@@ -31,7 +31,6 @@
 </template>
 
 <script>
-    import swal from 'sweetalert';
     export default {
         mounted() {
             console.log('Component mounted.')
@@ -55,9 +54,6 @@
                        if(response.data.status == 'ok'){
                        console.log(response);
                            window.location.href = '/wallet';
-                       }
-                       if(response.data.status == 'error'){
-                            swal("Oops!", response.data.message, "error");
                        }
                     })
                     .catch(function (error) {

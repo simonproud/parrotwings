@@ -21,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Transaction\TransactionCreated' => [
             'App\Listeners\Transaction\TransactionCreatedListener',
         ],
+        'App\Events\User\UserCreated' => [
+            'App\Listeners\User\UserCreatedListener',
+        ],
     ];
 
     /**

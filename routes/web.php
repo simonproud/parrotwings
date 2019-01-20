@@ -12,14 +12,17 @@
 */
 
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/wallet', 'HomeController@index')->name('wallet');
+Route::get('/', 'HomeController@index')->name('home')->middleware(['auth', 'banned']);
+Route::get('/wallet', 'HomeController@index')->name('wallet')->middleware(['auth', 'banned']);
 
-Route::get('/wallet/moneyto', 'WalletController@moneyto')->name('moneyto');
-Route::get('/wallet/transactions', 'WalletController@transactions')->name('transactions');
-Route::post('/sendmoney', 'WalletController@sendMoney')->name('sendmoney');
+Route::get('/wallet/moneyto', 'WalletController@moneyto')->name('moneyto')->middleware(['auth', 'banned']);
+Route::get('/wallet/transactions', 'WalletController@transactions')->name('transactions')->middleware(['auth', 'banned']);
+Route::post('/sendmoney', 'WalletController@sendMoney')->name('sendmoney')->middleware(['auth', 'banned']);
 Route::get('/getuser', 'HomeController@getUsers')->name('getusers');
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware(['auth', 'banned']);
 Auth::routes();
 
 
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/action/ban', 'AdminController@actionBan');
+Route::get('/admin/action/unban', 'AdminController@actionUnban');

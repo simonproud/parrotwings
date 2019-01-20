@@ -26,6 +26,7 @@ import vSelect from 'vue-select'
 Vue.component('v-select', vSelect);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('pay-to', require('./components/PayTo.vue').default);
+Vue.component('admin-users', require('./components/AdminUsers.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

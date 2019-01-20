@@ -33,8 +33,11 @@ class WalletController extends Controller
             $t->destination = $request->user;
             $t->data = $request->money;
             $t->save();
+            return ['data' => $t, 'status' => 'ok'];
+       }else{
+       return ['status' => 'error', 'message' => 'You haven\'t Parrot Wings'];
        }
-    return ['data' => $t, 'status' => 'ok'];
+
     }
 
     public function transactions(Request $request){

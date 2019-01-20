@@ -70,9 +70,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $pw = new PW;
-        $pw->wallet = 500;
-        $user->wallet()->save($pw);
+
 
         return $user;
     }

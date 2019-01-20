@@ -126,7 +126,7 @@
 		<div id="content" class="content">
 
 			<!-- begin page-header -->
-			<h1 class="page-header">Dashboard <small>header small text goes here...</small></h1>
+			<h1 class="page-header">Переводы <small>внутренние транзакции...</small></h1>
 			<!-- end page-header -->
 
 			 @yield('content')

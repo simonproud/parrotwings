@@ -6,7 +6,7 @@ use Laravel\Scout\Searchable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Events\User\UserCreated;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -19,7 +19,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
-
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
+    ];
     /**
      * The attributes that should be hidden for arrays.
      *
